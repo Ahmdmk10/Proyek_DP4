@@ -1,0 +1,18 @@
+# File Executable / Binary
+*.exe
+*.out
+*.app
+
+# File Object & Unit (Pascal / C++)
+*.o
+*.obj
+*.ppu
+*.bak
+
+# File Temporary / Backup
+*~
+*.swp
+
+# Konfigurasi Editor / IDE (Opsional tapi disarankan)
+.vscode/
+.idea/
