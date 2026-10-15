@@ -49,3 +49,47 @@ var
 
   Pilihan : integer;               { pilihan menu }
   Selesai : boolean;               { penanda keluar dari loop menu }
+
+function InputAngka(Pesan: string; Min, Maks: longint): longint;
+var
+  S    : string;
+  N    : longint;
+  Kode : integer;
+begin
+  repeat
+    write(Pesan);
+    readln(S);
+    val(S, N, Kode);
+    if (Kode <> 0) or (N < Min) or (N > Maks) then
+      writeln('  Input tidak valid. Isi angka ', Min, ' sampai ', Maks, '.');
+  until (Kode = 0) and (N >= Min) and (N <= Maks);
+  InputAngka := N;
+end;
+
+function kabisat(tahun : integer) : boolean;
+begin
+  kabisat := ((tahun mod 4 = 0)) and ((tahun mod 100 <> 0)) or ((tahun mod 400 = 0));
+end;
+
+function InputAngka(Pesan: string; Min, Maks: longint): longint;
+var
+  S    : string;
+  N    : longint;
+  Kode : integer;
+begin
+  repeat
+    write(Pesan);
+    readln(S);
+    val(S, N, Kode);
+    if (Kode <> 0) or (N < Min) or (N > Maks) then
+      writeln('  Input tidak valid. Isi angka ', Min, ' sampai ', Maks, '.');
+  until (Kode = 0) and (N >= Min) and (N <= Maks);
+  InputAngka := N;
+end;
+
+procedure Garis;
+begin
+  writeln('--------------------------------');
+end;
+
+
