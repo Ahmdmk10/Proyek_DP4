@@ -19,6 +19,10 @@
 
 *Catat setiap rupiah, jaga uang bulananmu sampai akhir bulan.* ✨
 
+**Proyek UTS Dasar Pemrograman (DP4)**<br>
+Program Studi Ilmu Komputer, Universitas Sumatera Utara<br>
+Semester Ganjil T.A. 2026/2027
+
 </div>
 
 ---
@@ -28,14 +32,24 @@
 
 <br>
 
-1. [📖 Latar Belakang](#-latar-belakang)
-2. [🎯 Tentang DoMas](#-tentang-domas)
-3. [🚀 Fitur dan Fungsi Utama](#-fitur-dan-fungsi-utama)
-4. [🖥️ Contoh Tampilan](#️-contoh-tampilan)
-5. [🏆 Tujuan Pembuatan](#-tujuan-pembuatan)
-6. [⚙️ Cara Menjalankan Program](#️-cara-menjalankan-program)
+1. [👥 Anggota Kelompok](#-anggota-kelompok)
+2. [📖 Latar Belakang](#-latar-belakang)
+3. [🎯 Tentang DoMas](#-tentang-domas)
+4. [🚀 Fitur dan Fungsi Utama](#-fitur-dan-fungsi-utama)
+5. [📸 Tangkapan Layar](#-tangkapan-layar)
+6. [🖥️ Contoh Tampilan](#️-contoh-tampilan)
+7. [🏆 Tujuan Pembuatan](#-tujuan-pembuatan)
+8. [⚙️ Cara Menjalankan Program](#️-cara-menjalankan-program)
 
 </details>
+
+---
+
+## 👥 Anggota Kelompok
+
+| No | Nama | NIM | KOM | Lab |
+|:-:|---|---|:-:|:-:|
+| 1 | *(isi nama lengkap)* | *(isi NIM)* | *(isi KOM)* | *(isi nomor lab)* |
 
 ---
 
@@ -75,6 +89,8 @@ DoMas dibuat untuk membantu masalah ini: catat cepat lewat terminal, hitung otom
 - Tanggal dibatasi sesuai jumlah hari di bulan berjalan (tahun kabisat ikut dihitung).
 - Kapasitas maksimal **200 transaksi**. Kalau penuh, program memberi pesan dan data lama tetap aman.
 
+> 🧠 **Logika singkat:** tanggal dibatasi oleh `HariDalamBulan`. Data disiapkan dulu di variabel sementara, lalu dimasukkan ke array dan langsung disimpan ke file.
+
 ### 2. 📤 Pencatatan Pengeluaran dan Validasi Saldo (`CatatPengeluaran`)
 
 Pengeluaran dicatat dalam **5 kategori**:
@@ -90,15 +106,21 @@ Pengeluaran dicatat dalam **5 kategori**:
 - 🛡️ **Validasi sisa saldo.** Pengeluaran yang lebih besar dari sisa saldo ditolak, jadi saldo tidak pernah minus.
 - ⚠️ **Peringatan dini anggaran.** Begitu pengeluaran mencapai **80 persen** dari anggaran, program menampilkan peringatan beserta persentasenya.
 
+> 🧠 **Logika singkat:** nominal dibandingkan dengan `SisaSaldo` (total pemasukan dikurangi total pengeluaran bulan itu). Kalau lebih besar, transaksi ditolak. Kalau lolos, total pengeluaran dibandingkan dengan 80 persen anggaran untuk menentukan perlu tidaknya peringatan.
+
 ### 3. 📊 Ringkasan Keuangan Bulanan (`TampilRingkasan`)
 
 - Menampilkan anggaran, total pemasukan, total pengeluaran, dan sisa saldo.
 - Menampilkan pengeluaran per kategori beserta persentasenya.
 - 🧮 **Jatah harian otomatis:** sisa saldo dibagi sisa hari di bulan itu.
 
+> 🧠 **Logika singkat:** total dijumlahkan dengan perulangan sambil menyaring bulan dan tahun. Sisa hari = jumlah hari bulan ini dikurangi tanggal hari ini ditambah 1. Jatah harian = sisa saldo dibagi sisa hari.
+
 ### 4. 📝 Ekspor Laporan Bulanan (`CetakLaporan`)
 
 Menulis laporan bulan berjalan ke file teks **`laporan_bulan.txt`**, berisi ringkasan, total per kategori, dan daftar transaksi bulan itu.
+
+> 🧠 **Logika singkat:** file teks dibuat dengan `rewrite`, isinya ditulis dengan `writeln(F, ...)`, hanya transaksi di bulan dan tahun aktif yang ikut ditulis, lalu file ditutup.
 
 ### 5. 💾 Manajemen File dan Tanggal Otomatis
 
@@ -106,6 +128,26 @@ Menulis laporan bulan berjalan ke file teks **`laporan_bulan.txt`**, berisi ring
 - 🗃️ File biner **`dompetkos.dat`** menyimpan semua transaksi.
 - 🗃️ File biner **`anggaran.dat`** menyimpan anggaran bulanan.
 - 🔒 Saat pertama dijalankan, file belum ada. Program mendeteksinya lewat `IOResult`, lalu meminta anggaran awal tanpa error.
+
+> 🧠 **Logika singkat:** file dibuka dengan `reset` di antara `{$I-}` dan `{$I+}`, lalu `IOResult = 0` berarti file ada. Data dibaca dengan `while not eof` sampai habis. Untuk menyimpan, file dibuka dengan `rewrite` lalu setiap transaksi ditulis satu per satu.
+
+---
+
+## 📸 Tangkapan Layar
+
+Hasil jalannya program (ganti nama file sesuai tangkapan layar milik kelompok, simpan di folder `screenshots/`).
+
+| Menu Utama | Catat Pemasukan |
+|:-:|:-:|
+| ![Menu Utama](screenshots/menu.png) | ![Catat Pemasukan](screenshots/pemasukan.png) |
+
+| Catat Pengeluaran dan Peringatan | Ringkasan Bulanan |
+|:-:|:-:|
+| ![Pengeluaran](screenshots/pengeluaran.png) | ![Ringkasan](screenshots/ringkasan.png) |
+
+| Laporan Bulanan (`laporan_bulan.txt`) |
+|:-:|
+| ![Laporan](screenshots/laporan.png) |
 
 ---
 
