@@ -49,7 +49,9 @@ Semester Ganjil T.A. 2026/2027
 
 | No | Nama | NIM | KOM | Lab |
 |:-:|---|---|:-:|:-:|
-| 1 | *(isi nama lengkap)* | *(isi NIM)* | *(isi KOM)* | *(isi nomor lab)* |
+| 1 | Ahmad Mumtazul Kautsar | 261401076 | B | 4 |
+| 2 | Farrel Adlin | 261401093 | B | 4 |
+| 3 | Ahmad Raihan Alfarid | 261401097 | B | 4 |
 
 ---
 
