@@ -1,18 +1,30 @@
-# File Executable / Binary
+# =========================
+# FILE EXECUTABLE / BINARY
+# =========================
 *.exe
-*.out
+*.dll
 *.app
+*.out
 
-# File Object & Unit (Pascal / C++)
-*.o
-*.obj
+# =========================
+# FREE PASCAL & LAZARUS
+# =========================
 *.ppu
-*.bak
+*.o
+*.or
+*.compiled
 
-# File Temporary / Backup
+# =========================
+# BACKUP & TEMP FILES
+# =========================
+*.bak
 *~
 *.swp
+*.tmp
 
-# Konfigurasi Editor / IDE (Opsional tapi disarankan)
-.vscode/
-.idea/
+# =========================
+# DIREKTORI BUILD / OUTPUT
+# =========================
+backup/
+lib/
+bin/

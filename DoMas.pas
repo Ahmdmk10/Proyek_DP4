@@ -1,11 +1,15 @@
 program DompetKos;
+
+uses dos;
+
+{ ===================== CONST ===================== }
 const
-  MAKS_TRANSAKSI    = 200;                 { kapasitas array transaksi }
-  JML_KATEGORI      = 5;                   { jumlah kategori pengeluaran }
-  BATAS_PERINGATAN  = 0.8;                 { 80 persen dari anggaran }
-  NAMA_FILE_DATA    = 'dompetkos.dat';     { database transaksi }
-  NAMA_FILE_ANGGARAN = 'anggaran.dat';     { menyimpan anggaran bulanan }
-  NAMA_FILE_LAPORAN = 'laporan_bulan.txt'; { hasil cetak laporan }
+  MAKS_TRANSAKSI     = 200;
+  JML_KATEGORI       = 5;
+  BATAS_PERINGATAN   = 0.8;
+  NAMA_FILE_DATA     = 'dompetkos.dat';
+  NAMA_FILE_ANGGARAN = 'anggaran.dat';
+  NAMA_FILE_LAPORAN  = 'laporan_bulan.txt';
 
   NAMA_KATEGORI: array[1..JML_KATEGORI] of string =
     ('Makan', 'Transport', 'Kuota', 'Fotokopi', 'Lainnya');
@@ -28,7 +32,7 @@ type
   TTransaksi = record
     Tanggal    : TTanggal;
     Jenis      : TJenis;
-    Kategori   : TKategori;      { diisi 1 untuk pemasukan, tidak dipakai }
+    Kategori   : TKategori;
     Nominal    : longint;
     Keterangan : string[40];
   end;
@@ -36,20 +40,24 @@ type
   TDaftarTransaksi = array[1..MAKS_TRANSAKSI] of TTransaksi;
   TTotalKategori   = array[TKategori] of longint;
 
-
+{ ======================= VAR ===================== }
 var
-  Transaksi  : TDaftarTransaksi;   { semua catatan transaksi }
-  JmlTrans   : integer;            { jumlah transaksi yang terisi }
-  Anggaran   : longint;            { batas pengeluaran bulan ini }
-  BulanAktif : 1..12;              { bulan yang sedang dilihat }
-  TahunAktif : integer;            { tahun yang sedang dilihat }
+  Transaksi    : TDaftarTransaksi;
+  JmlTrans     : integer;
+  Anggaran     : longint;
+  BulanAktif   : 1..12;
+  TahunAktif   : integer;
+  HariIni      : integer;
 
-  FileData     : file of TTransaksi;  { file database transaksi }
-  FileAnggaran : file of longint;     { file anggaran }
+  FileData     : file of TTransaksi;
+  FileAnggaran : file of longint;
 
-  Pilihan : integer;               { pilihan menu }
-  Selesai : boolean;               { penanda keluar dari loop menu }
+  Pilihan      : integer;
+  Selesai      : boolean;
 
+{ ================== FUNGSI BANTU ================== }
+
+{ Baca angka dengan validasi rentang. Ulangi sampai benar. }
 function InputAngka(Pesan: string; Min, Maks: longint): longint;
 var
   S    : string;
@@ -66,30 +74,25 @@ begin
   InputAngka := N;
 end;
 
-function kabisat(tahun : integer) : boolean;
+function Kabisat(Tahun: integer): boolean;
 begin
-  kabisat := ((tahun mod 4 = 0)) and ((tahun mod 100 <> 0)) or ((tahun mod 400 = 0));
+  Kabisat := ((Tahun mod 4 = 0) and (Tahun mod 100 <> 0)) or (Tahun mod 400 = 0);
 end;
 
-function InputAngka(Pesan: string; Min, Maks: longint): longint;
-var
-  S    : string;
-  N    : longint;
-  Kode : integer;
+function HariDalamBulan(Bulan, Tahun: integer): integer;
 begin
-  repeat
-    write(Pesan);
-    readln(S);
-    val(S, N, Kode);
-    if (Kode <> 0) or (N < Min) or (N > Maks) then
-      writeln('  Input tidak valid. Isi angka ', Min, ' sampai ', Maks, '.');
-  until (Kode = 0) and (N >= Min) and (N <= Maks);
-  InputAngka := N;
+  case Bulan of
+    4, 6, 9, 11 : HariDalamBulan := 30;
+    2           : if Kabisat(Tahun) then HariDalamBulan := 29
+                  else HariDalamBulan := 28;
+  else
+    HariDalamBulan := 31;
+  end;
 end;
 
 procedure Garis;
 begin
-  writeln('--------------------------------');
+  writeln('------------------------------------------------');
 end;
 
 { ================== FILE ================== }
@@ -141,6 +144,56 @@ begin
   rewrite(FileAnggaran);
   write(FileAnggaran, Anggaran);
   close(FileAnggaran);
+end;
+
+{ ================== PERHITUNGAN ================== }
+
+function TotalPemasukan(Bulan, Tahun: integer): longint;
+var
+  i     : integer;
+  Total : longint;
+begin
+  Total := 0;
+  for i := 1 to JmlTrans do
+    if (Transaksi[i].Jenis = Pemasukan) and
+       (Transaksi[i].Tanggal.Bulan = Bulan) and
+       (Transaksi[i].Tanggal.Tahun = Tahun) then
+      Total := Total + Transaksi[i].Nominal;
+  TotalPemasukan := Total;
+end;
+
+function TotalPengeluaran(Bulan, Tahun: integer): longint;
+var
+  i     : integer;
+  Total : longint;
+begin
+  Total := 0;
+  for i := 1 to JmlTrans do
+    if (Transaksi[i].Jenis = Pengeluaran) and
+       (Transaksi[i].Tanggal.Bulan = Bulan) and
+       (Transaksi[i].Tanggal.Tahun = Tahun) then
+      Total := Total + Transaksi[i].Nominal;
+  TotalPengeluaran := Total;
+end;
+
+function SisaSaldo(Bulan, Tahun: integer): longint;
+begin
+  SisaSaldo := TotalPemasukan(Bulan, Tahun) - TotalPengeluaran(Bulan, Tahun);
+end;
+
+procedure HitungPerKategori(Bulan, Tahun: integer; var Hasil: TTotalKategori);
+var
+  i : integer;
+  k : TKategori;
+begin
+  for k := 1 to JML_KATEGORI do
+    Hasil[k] := 0;
+  for i := 1 to JmlTrans do
+    if (Transaksi[i].Jenis = Pengeluaran) and
+       (Transaksi[i].Tanggal.Bulan = Bulan) and
+       (Transaksi[i].Tanggal.Tahun = Tahun) then
+      Hasil[Transaksi[i].Kategori] :=
+        Hasil[Transaksi[i].Kategori] + Transaksi[i].Nominal;
 end;
 
 { ================== INPUT TRANSAKSI ================== }
@@ -311,5 +364,37 @@ begin
   writeln('=================================');
 end;
 
+{ ================== PROGRAM UTAMA ================== }
+var
+  Th, Bl, Hr, Dw : word;
 
+begin
+  GetDate(Th, Bl, Hr, Dw);
+  TahunAktif := Th;
+  BulanAktif := Bl;
+  HariIni    := Hr;
 
+  MuatData;
+  if not MuatAnggaran then
+  begin
+    writeln('Selamat datang di DompetKos!');
+    Anggaran := InputAngka('Masukkan anggaran bulan ini (Rp): ', 1, 100000000);
+    SimpanAnggaran;
+  end;
+
+  Selesai := false;
+  repeat
+    TampilMenu;
+    Pilihan := InputAngka('Pilih menu (1-5): ', 1, 5);
+    case Pilihan of
+      1: CatatPemasukan;
+      2: CatatPengeluaran;
+      3: TampilRingkasan;
+      4: CetakLaporan;
+      5: Selesai := true;
+    end;
+  until Selesai;
+
+  SimpanData;
+  writeln('Sampai jumpa!');
+end.
