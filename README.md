@@ -135,24 +135,6 @@ Menulis laporan bulan berjalan ke file teks **`laporan_bulan.txt`**, berisi ring
 
 ---
 
-## 📸 Tangkapan Layar
-
-Hasil jalannya program (ganti nama file sesuai tangkapan layar milik kelompok, simpan di folder `screenshots/`).
-
-| Menu Utama | Catat Pemasukan |
-|:-:|:-:|
-| ![Menu Utama](screenshots/menu.png) | ![Catat Pemasukan](screenshots/pemasukan.png) |
-
-| Catat Pengeluaran dan Peringatan | Ringkasan Bulanan |
-|:-:|:-:|
-| ![Pengeluaran](screenshots/pengeluaran.png) | ![Ringkasan](screenshots/ringkasan.png) |
-
-| Laporan Bulanan (`laporan_bulan.txt`) |
-|:-:|
-| ![Laporan](screenshots/laporan.png) |
-
----
-
 ## 🖥️ Contoh Tampilan
 
 **Menu utama**
