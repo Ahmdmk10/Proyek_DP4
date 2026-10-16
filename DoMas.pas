@@ -92,4 +92,53 @@ begin
   writeln('--------------------------------');
 end;
 
+{ ================== FILE ================== }
 
+procedure MuatData;
+begin
+  JmlTrans := 0;
+  assign(FileData, NAMA_FILE_DATA);
+  {$I-} reset(FileData); {$I+}
+  if IOResult = 0 then
+  begin
+    while (not eof(FileData)) and (JmlTrans < MAKS_TRANSAKSI) do
+    begin
+      inc(JmlTrans);
+      read(FileData, Transaksi[JmlTrans]);
+    end;
+    close(FileData);
+  end;
+end;
+
+procedure SimpanData;
+var
+  i : integer;
+begin
+  assign(FileData, NAMA_FILE_DATA);
+  rewrite(FileData);
+  for i := 1 to JmlTrans do
+    write(FileData, Transaksi[i]);
+  close(FileData);
+end;
+
+{ Kembalikan TRUE jika file anggaran ada }
+function MuatAnggaran: boolean;
+begin
+  MuatAnggaran := false;
+  assign(FileAnggaran, NAMA_FILE_ANGGARAN);
+  {$I-} reset(FileAnggaran); {$I+}
+  if IOResult = 0 then
+  begin
+    read(FileAnggaran, Anggaran);
+    close(FileAnggaran);
+    MuatAnggaran := true;
+  end;
+end;
+
+procedure SimpanAnggaran;
+begin
+  assign(FileAnggaran, NAMA_FILE_ANGGARAN);
+  rewrite(FileAnggaran);
+  write(FileAnggaran, Anggaran);
+  close(FileAnggaran);
+end;
