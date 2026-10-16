@@ -1,104 +1,285 @@
 <div align="center">
 
-<p>
-  <img src="https://img.shields.io/badge/STATUS-ACTIVE%20%F0%9F%94%A5-success?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/LANGUAGE-PASCAL-blue?style=for-the-badge&logo=codeproject&logoColor=white" alt="Pascal">
-  <img src="https://img.shields.io/badge/PLATFORM-CLI%20%2F%20TERMINAL-orange?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="CLI">
-  <img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge" alt="License">
-</p>
+![Status](https://img.shields.io/badge/Status-Active-2ea44f?style=for-the-badge&logo=checkmarx&logoColor=white)
+![Bahasa](https://img.shields.io/badge/Bahasa-Pascal-E3A21A?style=for-the-badge&logo=delphi&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-CLI%20%2F%20Terminal-1f6feb?style=for-the-badge&logo=gnometerminal&logoColor=white)
+![Lisensi](https://img.shields.io/badge/Lisensi-MIT-8957e5?style=for-the-badge&logo=opensourceinitiative&logoColor=white)
 
 ```text
-====   ====   =   =    ===   ==== 
-=   =  =   =  == ==   =   =  =    
-=   =  =   =  = = =   =====   === 
-=   =  =   =  =   =   =   =      =
-====   ====   =   =   =   =  ==== 
+======      =====     =     =     ===      ======
+=     =    =     =    ==   ==    =   =    =
+=     =    =     =    = = = =   =======    =====
+=     =    =     =    =  =  =   =     =         =
+======      =====     =     =   =     =   ======
+```
 
+# 💰 DoMas (Dompet Mahasiswa)
 
-DoMas (Dompet Mahasiswa)
+### Terminal-Based Financial Tracking System sebagai Solusi Praktis Pengendalian Pengeluaran Harian Mahasiswa
 
-Terminal-Based Financial Tracking System sebagai Solusi Praktis Pengendalian Pengeluaran Harian Mahasiswa
+*Catat setiap rupiah, jaga uang bulananmu sampai akhir bulan.* ✨
 
-<p align="center">
-<img src="https://img.shields.io/badge/Language-Pascal-blue?style=for-the-badge&logo=codeproject&logoColor=white" alt="Pascal">
-<img src="https://img.shields.io/badge/Platform-CLI%20%2F%20Terminal-orange?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="CLI">
-<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status">
-</p>
+![Free Pascal](https://img.shields.io/badge/Free%20Pascal-3.2.2-orange?style=flat-square)
+![Platform OS](https://img.shields.io/badge/Windows%20%7C%20Linux%20%7C%20macOS-supported-blue?style=flat-square)
+![Tipe](https://img.shields.io/badge/Tipe-Proyek%20Praktikum-ff69b4?style=flat-square)
 
 </div>
 
-📖 Latar Belakang
+---
 
-Bagi sebagian besar mahasiswa—terutama yang merantau dan tinggal di kos—mengatur keuangan bulanan adalah tantangan yang pelik. Sering kali kiriman atau uang saku bulanan habis sebelum waktunya akibat pencatatan keuangan yang manual, tidak terstruktur, atau bahkan diabaikan begitu saja.
+<details>
+<summary><b>📑 Daftar Isi (klik untuk membuka)</b></summary>
 
-Ketiadaan kontrol terhadap pengeluaran harian sering memicu masalah finansial di pertengahan hingga akhir bulan (defisit anggaran). Berangkat dari keresahan tersebut, DoMas (Dompet Mahasiswa) dikembangkan sebagai solusi cerdas berbasis teknologi konsol yang ringan, cepat, dan mudah diakses untuk membantu mahasiswa mengambil kendali penuh atas keuangan mereka secara mandiri.
+<br>
 
-🚀 Tentang DoMas
+1. [📖 Latar Belakang](#-latar-belakang)
+2. [🎯 Tentang DoMas](#-tentang-domas)
+3. [🚀 Fitur dan Fungsi Utama](#-fitur-dan-fungsi-utama)
+4. [🖥️ Contoh Tampilan](#️-contoh-tampilan)
+5. [🏆 Tujuan Pembuatan](#-tujuan-pembuatan)
+6. [🧱 Struktur Proyek](#-struktur-proyek)
+7. [⚙️ Cara Menjalankan Program](#️-cara-menjalankan-program)
+8. [🔮 Rencana Pengembangan](#-rencana-pengembangan)
+9. [📄 Lisensi](#-lisensi)
 
-DoMas adalah aplikasi pencatatan dan manajemen keuangan pribadi berbasis teks (Command Line Interface / CLI) yang dirancang khusus untuk mahasiswa. Program ini dibangun menggunakan bahasa pemrograman Pascal dengan pendekatan pemrograman modular yang menerapkan konsep procedure, function, rekaman (record), array terstruktur, dan manajemen file biner.
+</details>
 
-Aplikasi ini tidak hanya mencatat uang masuk dan keluar, tetapi juga memproyeksikan jatah harian otomatis berdasarkan kalender sistem serta memberikan peringatan dini ketika pengeluaran mendekati batas anggaran.
+---
 
-✨ Fitur & Fungsi Utama
+## 📖 Latar Belakang
 
-Berdasarkan arsitektur kodenya, DoMas dilengkapi dengan berbagai fitur fungsional berikut:
+Hidup sebagai mahasiswa perantau atau anak kos berarti mengatur uang sendiri untuk pertama kalinya. Uang bulanan datang sekaligus di awal bulan, sementara pengeluaran datang sedikit demi sedikit setiap hari: makan, ongkos, kuota internet, fotokopi tugas, dan banyak hal kecil lainnya.
 
-1. Pencatatan Pemasukan (CatatPemasukan)
+Masalahnya, banyak mahasiswa mencatat keuangan secara **manual** atau tidak mencatat sama sekali. Akibatnya:
 
-	⚬ Memfasilitasi input uang masuk ke dalam dompet lengkap dengan tanggal aktif, nominal, keterangan, dan batasan kapasitas sistem hingga 200 transaksi.
+- 😵 Tidak tahu uang habis ke mana.
+- 📉 Pengeluaran kecil menumpuk tanpa terasa.
+- 🚨 Di minggu terakhir bulan, saldo menipis dan terjadi **defisit anggaran**.
+- 🍜 Terpaksa berhemat berlebihan atau meminjam uang teman.
 
-	⚬ Data langsung diamankan secara permanen ke media penyimpanan file biner.
+DoMas hadir untuk menutup celah ini dengan cara yang sederhana: catat cepat lewat terminal, hitung otomatis, dan beri peringatan **sebelum** uang benar-benar habis.
 
-2. Pencatatan Pengeluaran & Validasi Saldo (CatatPengeluaran)
+---
 
-	⚬ Mencatat pengeluaran harian berdasarkan 5 kategori utama: Makan, Transport, Kuota, Fotokopi, dan Lainnya.
+## 🎯 Tentang DoMas
 
-	⚬ Validasi Keamanan Saldo: Sistem secara otomatis menolak transaksi pengeluaran jika nominalnya melebihi sisa saldo aktif, mencegah saldo bernilai minus.
+**DoMas (Dompet Mahasiswa)** adalah aplikasi pencatat keuangan berbasis **Command Line Interface (CLI)** yang ditulis dengan bahasa **Pascal**. Program berjalan di terminal dengan menu angka yang mudah dipakai.
 
-	⚬ Peringatan Anggaran Dini (Budget Warning): Memberikan notifikasi otomatis jika total pengeluaran telah mencapai atau melewati batas aman ($80\%$ dari total anggaran bulanan).
+Proyek ini dibangun dengan konsep **pemrograman modular**:
 
-3. Ringkasan Keuangan Bulanan (TampilRingkasan)
+| 🧩 Konsep | 📌 Dipakai untuk |
+|---|---|
+| `procedure` dan `function` | Memecah program menjadi tugas kecil yang bisa dipakai ulang |
+| `record` | Menyimpan satu catatan transaksi (tanggal, jenis, kategori, nominal, keterangan) |
+| Array terstruktur | Menampung hingga 200 transaksi dan total per kategori |
+| Tipe terenumerasi dan subrentang | Membatasi nilai jenis transaksi dan nomor kategori |
+| File biner (*typed file*) | Menyimpan data agar tidak hilang saat program ditutup |
+| Penanganan error I/O | Program tidak berhenti saat file belum ada (`{$I-}`, `{$I+}`, `IOResult`) |
 
-	⚬ Menyajikan rekapitulasi finansial secara instan di terminal (total anggaran, total pemasukan, total pengeluaran, dan sisa saldo).
+---
 
-	⚬ Menampilkan rincian pengeluaran per kategori beserta persentasenya.
+## 🚀 Fitur dan Fungsi Utama
 
-	⚬ Kalkulator Jatah Harian: Menghitung sisa jatah uang harian secara otomatis berdasarkan sisa hari efektif hingga akhir bulan.
+### 1. 📥 Pencatatan Pemasukan (`CatatPemasukan`)
 
-4. Ekspor Laporan Bulanan (CetakLaporan)
+Mencatat uang masuk seperti kiriman orang tua, beasiswa, atau gaji kerja paruh waktu.
 
-	⚬ Memiliki fitur cetak laporan otomatis yang merangkum ringkasan keuangan dan daftar riwayat transaksi ke dalam file teks eksternal (laporan_bulan.txt).
+- Input tanggal dibatasi sesuai jumlah hari di bulan berjalan (tahun kabisat ikut dihitung).
+- Input nominal dan keterangan (maksimal 40 karakter).
+- Kapasitas penyimpanan **maksimal 200 transaksi**. Kalau penuh, program memberi pesan dan data lama tetap aman.
 
-5. Manajemen File & Tanggal Otomatis
+### 2. 📤 Pencatatan Pengeluaran dan Validasi Saldo (`CatatPengeluaran`)
 
-	⚬ Persistence Storage: Menyimpan dan memuat data transaksi serta anggaran secara otomatis melalui file biner (dompetkos.dat dan anggaran.dat) dengan penanganan error I/O (error handling).
+Mencatat uang keluar dengan **5 kategori**:
 
-	⚬ Integrasi Sistem (GetDate): Mengambil informasi tanggal, bulan, dan tahun secara otomatis dari sistem operasi komputer saat program dijalankan.
+| No | Kategori | Contoh |
+|:-:|---|---|
+| 1 | 🍛 Makan | Makan siang, galon, belanja dapur |
+| 2 | 🚌 Transport | Ojek, bensin, angkot |
+| 3 | 📶 Kuota | Paket data, pulsa |
+| 4 | 🖨️ Fotokopi | Print dan fotokopi tugas |
+| 5 | 📦 Lainnya | Kebutuhan di luar kategori di atas |
 
-🎯 Tujuan Pembuatan
+Dua perlindungan penting:
 
-⚬ Solusi Anti-Defisit: Membantu mahasiswa menghindari krisis keuangan di akhir bulan melalui perencanaan dan pengawasan anggaran yang disiplin.
+- 🛡️ **Validasi sisa saldo.** Pengeluaran yang lebih besar dari sisa saldo ditolak, jadi saldo tidak pernah minus.
+- ⚠️ **Peringatan dini anggaran (*budget warning*).** Begitu pengeluaran mencapai **80 persen** dari anggaran, program langsung menampilkan peringatan beserta persentasenya.
 
-⚬ Otomatisasi Keuangan Personal: Menggantikan catatan dompet konvensional atau spreadsheet yang rumit dengan aplikasi terminal yang cepat dan efisien.
+### 3. 📊 Ringkasan Keuangan Bulanan (`TampilRingkasan`)
 
-⚬ Penerapan Clean Code & Modularitas: Menjadi wadah implementasi konsep logika pemrograman terstruktur dalam dunia nyata.
+Menampilkan gambaran bulan berjalan dalam satu layar:
 
-🛠️ Cara Menjalankan Program
+- Anggaran, total pemasukan, total pengeluaran, dan sisa saldo.
+- Pengeluaran per kategori beserta persentasenya.
+- 🧮 **Kalkulator jatah harian otomatis:** sisa saldo dibagi sisa hari di bulan itu, jadi kamu tahu batas aman belanja per hari.
 
-1. Pastikan Anda memiliki compiler Pascal (seperti Free Pascal / FPC atau Lazarus) terinstal di komputer Anda.
+### 4. 📝 Ekspor Laporan Bulanan (`CetakLaporan`)
 
-2. Unduh atau clone repositori ini.
+Menulis laporan lengkap bulan berjalan ke file teks eksternal **`laporan_bulan.txt`**, berisi ringkasan, total per kategori, dan daftar semua transaksi bulan itu. File ini bisa dibuka di editor teks apa pun atau dicetak.
 
-3. Buka terminal atau command prompt pada direktori file, lalu kompilasi program:
+### 5. 💾 Manajemen File dan Tanggal Otomatis
 
-[bash]
+- 📅 **Tanggal otomatis.** Program membaca tanggal komputer lewat `GetDate` (unit `dos`), jadi bulan dan tahun aktif tidak perlu diisi manual.
+- 🗃️ **File biner `dompetkos.dat`** menyimpan semua transaksi (`MuatData` dan `SimpanData`).
+- 🗃️ **File biner `anggaran.dat`** menyimpan anggaran bulanan (`MuatAnggaran` dan `SimpanAnggaran`).
+- 🔒 **Error handling I/O.** Saat pertama kali dijalankan, file belum ada. Program mendeteksinya lewat `IOResult`, lalu meminta anggaran awal tanpa berhenti karena error.
+
+---
+
+## 🖥️ Contoh Tampilan
+
+**Menu utama**
+
+```text
+=========== DOMPETKOS ===========
+ 1. Catat pemasukan
+ 2. Catat pengeluaran
+ 3. Lihat ringkasan
+ 4. Cetak laporan
+ 5. Keluar
+=================================
+Pilih menu (1-5):
+```
+
+**Peringatan dini saat pengeluaran mencapai 80 persen anggaran**
+
+```text
+Pengeluaran tersimpan.
+PERINGATAN: pengeluaran sudah 85 persen dari anggaran!
+```
+
+**Ringkasan bulanan**
+
+```text
+------------------------------------------------
+ RINGKASAN Oktober 2026
+------------------------------------------------
+ Anggaran        : Rp 1000000
+ Total pemasukan : Rp 2000000
+ Total keluar    : Rp 850000
+ Sisa saldo      : Rp 1150000
+------------------------------------------------
+ Pengeluaran per kategori:
+  Makan      Rp     600000  (70%)
+  Transport  Rp     250000  (29%)
+  Kuota      Rp          0  (0%)
+  Fotokopi   Rp          0  (0%)
+  Lainnya    Rp          0  (0%)
+------------------------------------------------
+ Jatah per hari (sisa 16 hari): Rp 71875
+------------------------------------------------
+```
+
+---
+
+## 🏆 Tujuan Pembuatan
+
+- 🛑 **Solusi anti-defisit.** Membantu mahasiswa melihat pengeluaran sejak dini dan berhenti sebelum saldo habis.
+- 🤖 **Otomatisasi keuangan personal.** Total, sisa saldo, persentase kategori, dan jatah harian dihitung otomatis, tanpa kalkulator dan buku catatan.
+- 🧼 **Penerapan clean code.** Setiap tugas dipisah menjadi `procedure` atau `function` dengan satu tanggung jawab, memakai konstanta bernama (bukan angka sembarang), dan validasi input yang konsisten lewat satu fungsi `InputAngka`.
+- 🎓 **Latihan konsep dasar pemrograman.** Record, array, perulangan, percabangan, modularisasi, dan pengolahan file dalam satu proyek utuh.
+
+---
+
+## 🧱 Struktur Proyek
+
+```text
+DoMas/
+├── DoMas.pas            # Kode sumber utama
+├── README.md            # Dokumentasi ini
+├── LICENSE              # Lisensi MIT
+│
+└── (dibuat otomatis saat program berjalan)
+    ├── dompetkos.dat        # Database transaksi (file biner)
+    ├── anggaran.dat         # Anggaran bulanan (file biner)
+    └── laporan_bulan.txt    # Hasil cetak laporan
+```
+
+Urutan modul di dalam `DoMas.pas`:
+
+| Bagian | Isi |
+|---|---|
+| 🔧 Fungsi Bantu | `InputAngka`, `Kabisat`, `HariDalamBulan`, `Garis` |
+| 💾 Manajemen File | `MuatData`, `SimpanData`, `MuatAnggaran`, `SimpanAnggaran` |
+| 🧮 Perhitungan Keuangan | `TotalPemasukan`, `TotalPengeluaran`, `SisaSaldo`, `HitungPerKategori` |
+| ✍️ Input Transaksi | `CatatPemasukan`, `CatatPengeluaran` |
+| 🖼️ Tampilan | `TampilMenu`, `TampilRingkasan`, `CetakLaporan` |
+
+---
+
+## ⚙️ Cara Menjalankan Program
+
+### 1️⃣ Pasang Free Pascal Compiler
+
+| Sistem | Cara pasang |
+|---|---|
+| 🪟 **Windows** | Unduh installer dari [freepascal.org](https://www.freepascal.org/download.html), lalu ikuti petunjuk instalasi |
+| 🐧 **Linux (Debian/Ubuntu)** | `sudo apt install fpc` |
+| 🍎 **macOS** | `brew install fpc` |
+
+Cek instalasi dengan perintah `fpc -iV`.
+
+### 2️⃣ Unduh proyek
+
+```bash
+git clone https://github.com/USERNAME/DoMas.git
+cd DoMas
+```
+
+### 3️⃣ Kompilasi
+
+```bash
 fpc DoMas.pas
+```
 
+Kalau berhasil, akan muncul file hasil kompilasi di folder yang sama.
 
-4. Jalankan file eksekutable yang dihasilkan:
+### 4️⃣ Jalankan
 
-	⚬ Windows: DoMas.exe
+**🪟 Windows (Command Prompt atau PowerShell)**
 
-	⚬ Linux/macOS: ./DoMas
+```bat
+DoMas.exe
+```
 
-<p align="center"><i>Dibuat dengan semangat oleh mahasiswa Ilmu Komputer untuk efisiensi finansial mahasiswa perantau. 🚀</i></p>
+**🐧 Linux dan 🍎 macOS (Terminal)**
+
+```bash
+./DoMas
+```
+
+> [!TIP]
+> Saat pertama kali dijalankan, DoMas akan meminta **anggaran bulanan**. Setelah itu data tersimpan otomatis dan akan dimuat lagi pada pemakaian berikutnya.
+
+> [!NOTE]
+> Jalankan program dari folder yang sama setiap kali, karena file `dompetkos.dat` dan `anggaran.dat` dibuat di folder kerja saat ini.
+
+---
+
+## 🔮 Rencana Pengembangan
+
+- [ ] Menu hapus dan ubah transaksi
+- [ ] Memilih bulan dan tahun yang ingin dilihat
+- [ ] Anggaran terpisah untuk tiap kategori
+- [ ] Ekspor laporan dalam format CSV
+- [ ] Peningkatan kapasitas transaksi
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dirilis di bawah lisensi **MIT**. Silakan dipakai, dipelajari, dan dikembangkan lebih lanjut.
+
+---
+
+<div align="center">
+
+### 🌱 *"Uang yang dicatat adalah uang yang terjaga. Mulai dari catatan kecil hari ini, raih kebebasan finansial di masa depan."*
+
+Dibuat dengan ❤️ dan secangkir kopi oleh mahasiswa, untuk mahasiswa.
+
+![Pengunjung](https://komarev.com/ghpvc/?username=USERNAME&label=Pengunjung&color=blueviolet&style=for-the-badge)
+
+⭐ Kalau proyek ini membantu, jangan lupa beri bintang di repositori ini.
+
+</div>
