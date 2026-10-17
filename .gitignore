@@ -3,7 +3,7 @@
 
 # 2. Kecuali file dengan ekstensi .pas (biarkan tetap terlacak)
 !*.pas
+!*.pdf
 
 # 3. Kecuali file .gitignore itu sendiri (opsional, agar file ignore-nya ikut terlacak)
 !.gitignore
-!.pdf
