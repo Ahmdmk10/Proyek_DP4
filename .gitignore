@@ -6,3 +6,4 @@
 
 # 3. Kecuali file .gitignore itu sendiri (opsional, agar file ignore-nya ikut terlacak)
 !.gitignore
+!.pdf
